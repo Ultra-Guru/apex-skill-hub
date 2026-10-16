@@ -4,7 +4,7 @@
 校验规则（任何一条失败即退出码 1）：
  1. index.json 可解析、schema 正确、count 与 skills[] 实际条数一致；
  2. 每个条目字段齐全（id/name/version/description/category/tags/scope/author/file）；
- 3. id 全局唯一、格式合法（小写字母数字连字符）；
+ 3. id 全局唯一、格式合法（PascalCase：大写字母开头，仅字母数字，禁止 - 与 _）；
  4. file 指向的 manifest 文件存在、可解析、schema=apex-skill-v1；
  5. manifest 的 id/name/version/category/scope 与索引条目一致（防索引漂移）；
  6. category 属于宿主 App SkillCategory 24 域词表；
@@ -30,7 +30,7 @@ LEGAL_CATEGORIES = {
     "coding",
 }
 LEGAL_SCOPES = {"agent", "coding", "all"}
-ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]{1,48}$")
+ID_RE = re.compile(r"^[A-Z][A-Za-z0-9]{1,48}$")
 SECRET_RE = re.compile(r"(ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16})")
 
 errors = []

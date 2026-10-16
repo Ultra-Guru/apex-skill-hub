@@ -4,6 +4,8 @@
 
 [English](#english) below.
 
+> **v4 命名规范化（2026-10）**：技能 id 全部改为 PascalCase（大写字母开头、仅字母数字，不再使用连字符或下划线），`skills/<id>.json` 文件名、`index.json` 的 `id`/`file`、manifest 的 `id` 与 CI 校验正则同步更新；下方历史章节保留当时的命名原貌。
+
 ## v3.1 逆向工程扩容说明（2026-10）
 
 1. **新增 15 个原创逆向工程方法论技能**（此前逆向领域为空白），全部原创中文三段式结构（触发场景 → 方法论维度 → 输出格式约定，密度双口径自检达标），与逆向工作流闭环对应：
@@ -13,7 +15,7 @@
    - **产出交付**（2）：补丁改写工艺（smali/ARM 两层落刀）、逆向报告写作（结论先行/证据链规范）；
 2. 技能间互相引用形成工作流闭环：侦察 → 脱壳 → so/协议分析 → 对抗反检测 → 补丁验证 → 报告交付；
 3. 总数 117 → **132**（coding 46→60，safety 3→4）；新技能 scope 以 coding 为主，恶意样本分诊等 3 个为 all；
-4. 配套 apex-mcp-hub v2.3.0 的 reverse-engineering 类（15 台 MCP）——技能教「怎么想」，MCP 给「用什么工具」。
+4. 配套 apex-mcp-hub v2.3.0 的 ReverseEngineering 类（15 台 MCP）——技能教「怎么想」，MCP 给「用什么工具」。
 
 ## v3 扩容说明（2026-10）
 
@@ -49,20 +51,20 @@ scripts/validate.py        # 注册表校验器（CI 用，零依赖）
 
 | 域 | 数量 | 代表技能 |
 |---|---|---|
-| coding 编程开发 | 60 | api-contract-design、root-cause-debugging、tdd-workflow、system-design-blueprint、apk-re-recon、native-so-re、frida-hook-craft、protocol-re-craft、unpack-dex-recovery、crypto-const-recognize、vuln-pattern-audit |
-| productivity 效率工具 | 15 | time-gtd、verification-before-done、execution-planner、technical-spec-writing、agent-orchestration-playbook、pdf/docx/xlsx/pptx-toolkit |
-| tech 数码科技 | 15 | kubernetes-troubleshooting、docker-craft-containerization、terraform-iac-craft、sre-golden-signals、gradle-build-tuning、linux-cli-mastery、prompt-craft-toolbox |
-| career 职场进阶 | 9 | resume-crafter、interview-coach、behavioral-interview-star、okr-alignment-craft |
-| data 数据分析 | 8 | ab-test-verdict、cohort-deep-dive、pandas-data-wrangling、sql-window-functions、metrics-tree-design |
-| business 商业思维 | 6 | business-model-craft、unit-economics-lab、pricing-strategy-lab、financial-statement-reader |
-| language 语言学习 | 4 | translation-master、business-english-polish、academic-english-editor |
-| safety 安全应急 | 4 | privacy-guard、phishing-defense-shield、security-hardening-review、malware-triage |
-| education 学习方法 | 2 | exam-tutor、study-methods |
-| communication 沟通表达 | 2 | public-speaking、internal-comms-writer |
-| knowledge 百科知识 | 2 | legal-consult、multi-step-research-synthesis |
-| finance 财务理财 | 1 | finance-literacy |
-| writing 专业写作 | 3 | writing-coach、brand-voice-guardian、video-script-writer |
-| creative 创意写作 | 1 | visual-canvas-designer |
+| coding 编程开发 | 60 | ApiContractDesign、RootCauseDebugging、TddWorkflow、SystemDesignBlueprint、ApkReRecon、NativeSoRe、FridaHookCraft、ProtocolReCraft、UnpackDexRecovery、CryptoConstRecognize、VulnPatternAudit |
+| productivity 效率工具 | 15 | TimeGtd、VerificationBeforeDone、ExecutionPlanner、TechnicalSpecWriting、AgentOrchestrationPlaybook、PdfToolkit/DocxToolkit/XlsxToolkit/PptxToolkit |
+| tech 数码科技 | 15 | KubernetesTroubleshooting、DockerCraftContainerization、TerraformIacCraft、SreGoldenSignals、GradleBuildTuning、LinuxCliMastery、PromptCraftToolbox |
+| career 职场进阶 | 9 | ResumeCrafter、InterviewCoach、BehavioralInterviewStar、OkrAlignmentCraft |
+| data 数据分析 | 8 | AbTestVerdict、CohortDeepDive、PandasDataWrangling、SqlWindowFunctions、MetricsTreeDesign |
+| business 商业思维 | 6 | BusinessModelCraft、UnitEconomicsLab、PricingStrategyLab、FinancialStatementReader |
+| language 语言学习 | 4 | TranslationMaster、BusinessEnglishPolish、AcademicEnglishEditor |
+| safety 安全应急 | 4 | PrivacyGuard、PhishingDefenseShield、SecurityHardeningReview、MalwareTriage |
+| education 学习方法 | 2 | ExamTutor、StudyMethods |
+| communication 沟通表达 | 2 | PublicSpeaking、InternalCommsWriter |
+| knowledge 百科知识 | 2 | LegalConsult、MultiStepResearchSynthesis |
+| finance 财务理财 | 1 | FinanceLiteracy |
+| writing 专业写作 | 3 | WritingCoach、BrandVoiceGuardian、VideoScriptWriter |
+| creative 创意写作 | 1 | VisualCanvasDesigner |
 
 `scope` 分布：`coding` 79 / `agent` 35 / `all` 18 —— 市场按 Agent / Coding 工位分级过滤。
 
@@ -75,7 +77,7 @@ scripts/validate.py        # 注册表校验器（CI 用，零依赖）
   "count": 132,
   "skills": [
     {
-      "id": "root-cause-debugging",
+      "id": "RootCauseDebugging",
       "name": "根因定位调试法",
       "version": "1.0.0",
       "description": "……",
@@ -83,7 +85,7 @@ scripts/validate.py        # 注册表校验器（CI 用，零依赖）
       "tags": ["调试", "根因", "debugging"],
       "scope": "coding",
       "author": "Apex",
-      "file": "skills/root-cause-debugging.json"
+      "file": "skills/RootCauseDebugging.json"
     }
   ]
 }
@@ -99,7 +101,7 @@ scripts/validate.py        # 注册表校验器（CI 用，零依赖）
 ```json
 {
   "schema": "apex-skill-v1",
-  "id": "root-cause-debugging",
+  "id": "RootCauseDebugging",
   "name": "根因定位调试法",
   "version": "1.0.0",
   "description": "一句话描述（会进入系统提示词的技能目录）",
@@ -110,7 +112,7 @@ scripts/validate.py        # 注册表校验器（CI 用，零依赖）
 }
 ```
 
-`promptInjection` 为渐进披露正文（1200-2600 汉字，三段式：触发场景 / 方法论 / 输出格式约定）：安装且启用后，模型经 `skill_activate` 或 `/skill:<id>` 装备时注入系统提示词。
+`promptInjection` 为渐进披露正文（1200-2600 汉字，三段式：触发场景 / 方法论 / 输出格式约定）：安装且启用后，模型经 `SkillActivate` 或 `/skill:<id>` 装备时注入系统提示词。
 
 ## CI 校验（GitHub Actions）
 
@@ -122,7 +124,7 @@ scripts/validate.py        # 注册表校验器（CI 用，零依赖）
 ## 收录约定
 
 - 新技能提 PR：`skills/<id>.json` + `index.json` 增加条目，CI 全绿即合并；
-- `id` 规则：`^[a-z0-9][a-z0-9-]{1,48}$`（小写字母数字连字符）；
+- `id` 规则：`^[A-Z][A-Za-z0-9]{1,48}$`（PascalCase：大写字母开头，仅字母数字，禁止 - 与 _）；
 - `description` 60-100 字高信息密度（首句进入技能目录，越精炼越利于模型选择）；
 - **不收生活/娱乐类技能**（本仓库定位：专业 + 生产力）。
 
@@ -130,7 +132,7 @@ scripts/validate.py        # 注册表校验器（CI 用，零依赖）
 
 # English
 
-**Official skill repository for Apex Agent** — 132 curated professional skills across 14 domains (v3.1: +15 original reverse-engineering skills — APK recon, smali editing, native SO analysis, Frida hooking, anti-re bypass, protocol RE, crypto constant recognition, unpacking, binary static/dynamic analysis, vulnerability pattern audit, malware triage, patching, and RE report writing; v3: +50 coding & complex-task skills), installed on demand from the in-app Market. Works with host v1.4.6+ hot-reload: install takes effect without restart. Pairs with apex-mcp-hub v2.3's `reverse-engineering` MCP category — skills teach the methodology, MCPs provide the tools.
+**Official skill repository for Apex Agent** — 132 curated professional skills across 14 domains (v3.1: +15 original reverse-engineering skills — APK recon, smali editing, native SO analysis, Frida hooking, anti-re bypass, protocol RE, crypto constant recognition, unpacking, binary static/dynamic analysis, vulnerability pattern audit, malware triage, patching, and RE report writing; v3: +50 coding & complex-task skills), installed on demand from the in-app Market. Works with host v1.4.6+ hot-reload: install takes effect without restart. Pairs with apex-mcp-hub v2.3's `ReverseEngineering` MCP category — skills teach the methodology, MCPs provide the tools.
 
 **v2 reorg (Oct 2026)**: all 45 lifestyle skills retired; 17 professional keepers recategorized into the host app's 24-domain taxonomy; 50 new skills added — renamed, rewritten in Chinese and optimized from three sources: [anthropics/skills](https://github.com/anthropics/skills) (12), [obra/superpowers](https://github.com/obra/superpowers) (MIT, 8), and the Android-Guru-Agent bundled set (30, migrated out of the APK so the market downloads them on demand).
 
